@@ -1,0 +1,124 @@
+/* =========================
+   Weather App
+   ========================= */
+:root{
+  --bg1:#0b1d2a; --bg2:#2a165b;                  /* deep teal -> purple */
+  --card:#0f2137cc;                               /* glass card (alpha) */
+  --surface:#0b1a2f;                              /* darker surface */
+  --text:#f7fbff; --muted:#b9c4d6; --muter:#92a1b6;
+  --accent1:#36d1dc; --accent2:#5b86e5;          /* cyan -> indigo gradient */
+  --accentRing:#9fb4ff66;
+  --stroke:#cfe1ff1f;
+  --shadow:0 18px 40px #0009, inset 0 1px 0 #ffffff1a;
+  --shadow-soft:0 10px 22px #0006;
+  --radius:20px; --pill:999px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; color:var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height:1.35;
+  background:
+    radial-gradient(1100px 700px at 8% -12%, #1a3b6f 12%, transparent 58%) no-repeat,
+    radial-gradient(1000px 700px at 110% 0%, #3b1a75 10%, transparent 58%) no-repeat,
+    linear-gradient(155deg, var(--bg1), var(--bg2));
+}
+
+/* ---------- Header --------- */
+.hero{ text-align:center; padding:2.4rem 1rem 1.2rem }
+.hero h1{ margin:0; font-size:clamp(2rem, 4vw, 3rem); letter-spacing:.2px }
+.place{ margin:.55rem 0 0; color:var(--muted) }
+
+/* ---------- Container & Sections --------- */
+.container{ max-width:1100px; margin:0 auto; padding:1rem 1.2rem 2rem }
+section{ margin-block:1rem }
+.panel{ margin-block:1.2rem }
+
+/* ---------- Controls row --------- */
+.controls .row{ display:flex; gap:.8rem; flex-wrap:wrap; align-items:center; justify-content:center }
+label[for="city"]{ color:var(--muter); margin-right:.2rem }
+
+.pill{
+  border-radius:var(--pill); padding:.95rem 1.2rem;
+  background:var(--card); border:1px solid var(--stroke);
+  color:var(--text); box-shadow:var(--shadow); backdrop-filter: blur(12px);
+  transition: transform .15s ease, box-shadow .2s ease, outline-color .2s ease, background .2s ease;
+}
+.pill:hover{ transform:translateY(-1px) }
+.pill:focus-visible{ outline:2px solid var(--accentRing); outline-offset:2px }
+.pill.primary{
+  border:0; color:#06111a; font-weight:700;
+  background:linear-gradient(135deg,var(--accent1),var(--accent2));
+  box-shadow:var(--shadow-soft);
+}
+
+.pill.input{
+  min-width:min(520px, 90vw);
+  border:1px solid #ffffff22;
+  background:linear-gradient(180deg,#0c1b30cc,#0d1e36cc);
+}
+.pill.input::placeholder{ color:var(--muted) }
+
+/* ---------- Tabs --------- */
+.tabs{ display:flex; gap:14px; margin:1.1rem auto 1.3rem; justify-content:center; flex-wrap:wrap }
+.tab{
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:linear-gradient(180deg,#0f2137cc,#0b1a2fcc);
+  border:1px solid #ffffff1f;
+}
+.tab.active{
+  outline:2px solid var(--accentRing);
+  box-shadow:0 0 0 3px #00000022 inset, var(--shadow-soft);
+}
+
+/* ---------- Status / messages --------- */
+.status{
+  min-height:1.2rem; color:var(--muted);
+  text-align:center; margin:.2rem 0 1rem;
+}
+.status.is-error{ color:#ffb3b3 }
+.status.is-ok{ color:#b1ffd1 }
+
+/* ---------- Grid areas --------- */
+.grids,
+.grid{ display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)) }
+
+/* ---------- Cards --------- */
+.card{
+  background:var(--card); border:1px solid var(--stroke);
+  border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);
+}
+.card h3{ margin:0 0 .5rem; font-size:1.06rem; color:#e6edff; letter-spacing:.2px }
+.row{
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:12px; padding:.35rem 0; color:var(--muted);
+  border-bottom:1px dashed #ffffff14;
+}
+.row:last-child{ border-bottom:0 }
+.row span:first-child{ color:#d7e3ff; letter-spacing:.15px }
+.big{ font-size:clamp(2rem, 6vw, 3.2rem); font-weight:800; color:#fff; text-shadow:0 2px 6px #0008; margin:.2rem 0 .3rem }
+
+/* ---------- Headings inside panels --------- */
+#apis{ 
+  font-size:clamp(1.25rem, 3vw, 1.6rem);
+  margin:.2rem 0 .7rem; letter-spacing:.2px;
+  color:#f0f5ff; text-shadow:0 2px 10px #0005;
+}
+
+/* ---------- Utilities --------- */
+.hidden{ display:none !important }
+.center{ text-align:center }
+
+/* ---------- Footer --------- */
+footer{ margin-top:2rem; text-align:center; color:var(--muted); padding:2rem 1rem 2.5rem }
+a{ color:#b5d7ff; text-decoration:underline dotted; text-underline-offset:3px }
+a:hover{ text-decoration-color:#cfe3ff }
+
+/* ---------- Responsive tweaks --------- */
+@media (max-width: 640px){
+  .pill.input{ min-width: min(360px, 92vw) }
+  .tabs{ gap:10px }
+  .row{ font-size:.95rem }
+}

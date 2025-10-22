@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Open Meteo Weather</title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+
+<body>
+    <header class="hero">
+        <h1>Open Meteo Weather</h1>
+        <p class="place" id="place">Search for a City</p>
+    </header>
+
+    <main class="container">
+        <section class="controls">
+            <div class="row">
+                <label for="city">Search by City Name/Zipcode</label>
+                <input id="city" class="pill input" placeholder="Enter City Name/Zipcode">
+                <button id="update" class="pill primary">Update Location</button>
+            </div>
+        </section>
+
+        <nav class="tabs" aria-label="api endpoint fetch">
+            <button class="pill tab active" data-tab="temp">🌡️Temperature</button>
+            <button class="pill tab" data-tab="rain">🌧️Rain</button>
+            <button class="pill tab" data-tab="humidity">💧Humidity</button>
+            <button class="pill tab" data-tab="air">🌬️Air Quality</button>
+        </nav>
+            
+        <section id="status" class="status" role="status"></section>
+
+        <!--Panels-->
+        <section>
+            <div id="temp" class="panel">
+                <h2 id="apis">Temperature</h2>
+                <div id="temp-output" class="grids"></div>
+            </div> 
+            <div id="rain" class="panel hidden">
+                <h2 id="apis">Rain</h2>
+                <div id="rain-output" class="grids"></div>
+            </div> 
+            <div id="humidity" class="panel hidden">
+                <h2 id="apis">Humidity</h2>
+                <div id="humidity-output" class="grids"></div>
+            </div> 
+            <div id="air-quality" class="panel hidden">
+                <h2 id="apis">Air Quality</h2>
+                <div id="air-quality-output" class="grids"></div>
+            </div> 
+        </section>
+
+
+    </main>
+    <footer>
+        <p> Weather Data provided by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open Meteo</a></p>
+    </footer>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
