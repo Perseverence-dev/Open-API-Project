@@ -1,4 +1,4 @@
-// Weather App
+// Weather App Open API Project
 
 const placeEl = document.querySelector('#place');
 const statusEl = document.querySelector('#status');
